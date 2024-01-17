@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 35%;
+            width: 50%;
         }
         .auto-style2 {
             height: 25px;
@@ -28,7 +28,7 @@
         }
     </style>
 </head>
-<body>
+<body style="width: 1336px">
     <form id="form1" runat="server">
         <div>
         </div>
@@ -41,7 +41,9 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6"></td>
+                <td class="auto-style6">
+                    <asp:Button ID="ButtonSaveEmployee" runat="server" OnClick="ButtonSaveEmployee_Click" Text="Save Employee" />
+                </td>
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style2">&nbsp;</td>
             </tr>

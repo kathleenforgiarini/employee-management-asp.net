@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using Lab1_ASPNetConnectedMode.DAL;
 
 namespace Lab1_ASPNetConnectedMode.BLL
 {
@@ -43,6 +45,26 @@ namespace Lab1_ASPNetConnectedMode.BLL
         //custom methods
         //public int GetEmployeeID() { return employeeID; }
         //public void SetEmployeeID(int employeeID) { this.employeeID = employeeID; }
+
+        public void SaveEmployee(Employee emp)
+        {
+            EmployeeDB.SaveRecord(emp);
+        }
+
+        public void UpdateEmployee(Employee emp)
+        {
+            EmployeeDB.UpdateRecord(emp);
+        }
+
+        public static void DeleteEmployee(int empId)
+        {
+            EmployeeDB.DeleteRecord(empId);
+        }
+
+        public static DataTable ListAllEmployees()
+        {
+            return EmployeeDB.listAll();
+        }
 
     }
 }

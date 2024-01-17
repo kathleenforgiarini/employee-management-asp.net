@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Data.SqlClient;    // just for testing
 using Lab1_ASPNetConnectedMode.DAL; // just for testing
+using Lab1_ASPNetConnectedMode.BLL;
 
 namespace Lab1_ASPNetConnectedMode.GUI
 {
@@ -21,6 +22,13 @@ namespace Lab1_ASPNetConnectedMode.GUI
         {
             SqlConnection conn = UtilityDB.GetDBConnection();
             MessageBox.Show("Database connection is " + conn.State.ToString());
+        }
+
+        protected void ButtonSaveEmployee_Click(object sender, EventArgs e)
+        {
+            Employee employee = new Employee(8881, "Mary", "Green", "C# Programmer");
+            employee.SaveEmployee(employee);
+            MessageBox.Show("Employee saved", "Saved");
         }
     }
 }

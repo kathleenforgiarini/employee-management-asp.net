@@ -31,5 +31,14 @@ namespace Lab1_ASPNetConnectedMode.GUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonConnectDB;
+
+        /// <summary>
+        /// ButtonSaveEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonSaveEmployee;
     }
 }
