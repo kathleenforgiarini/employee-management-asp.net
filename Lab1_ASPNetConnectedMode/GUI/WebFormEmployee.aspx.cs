@@ -96,5 +96,10 @@ namespace Lab1_ASPNetConnectedMode.GUI
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Lab1_ASPNetConnectedMode.DAL
     {
         //1. A method to save an employee record to the database
         /// <summary>
-        /// Version : 1 Working but has a problem: SQL injection
+        /// Version : 2 Solving SQL injection
         /// This method saves an employee record to the database
         /// </summary>
         /// <param name="emp"></param>
@@ -32,8 +32,14 @@ namespace Lab1_ASPNetConnectedMode.DAL
             //create and customize an object of type SqlCommand
             SqlCommand cmdInsert = new SqlCommand();
             cmdInsert.Connection = conn;
-            cmdInsert.CommandText = "INSERT INTO Employees " +
-                                    "VALUES(" + emp.EmployeeID + ", '" + emp.FirstName + "', '" + emp.LastName + "', '" + emp.JobTitle + "');";
+            
+            cmdInsert.CommandText = "INSERT INTO Employees (EmployeeId,FirstName,LastName,JobTitle) " +
+                                    "VALUES(@EmployeeID,@FirstName,@LastName,@JobTitle)";
+
+            cmdInsert.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
+            cmdInsert.Parameters.AddWithValue("@FirstName", emp.FirstName);
+            cmdInsert.Parameters.AddWithValue("@LastName", emp.LastName);
+            cmdInsert.Parameters.AddWithValue("@JobTitle", emp.JobTitle);
             cmdInsert.ExecuteNonQuery();
 
             //close DB

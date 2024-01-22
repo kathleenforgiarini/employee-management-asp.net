@@ -119,7 +119,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" Width="236px"></asp:TextBox>
                 </td>
                 <td class="auto-style18">
-                    <asp:Button ID="btnSearch" runat="server" Height="38px" Text="Search" Width="150px" />
+                    <asp:Button ID="btnSearch" runat="server" Height="38px" Text="Search" Width="150px" OnClick="btnSearch_Click" />
                 </td>
             </tr>
         </table>
