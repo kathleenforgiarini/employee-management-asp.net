@@ -61,9 +61,14 @@ namespace Lab1_ASPNetConnectedMode.BLL
             EmployeeDB.DeleteRecord(empId);
         }
 
-        public static DataTable ListAllEmployees()
+        public static List<Employee> GetAllEmployees()
         {
-            return EmployeeDB.listAll();
+            return EmployeeDB.GetAllRecords();
+        }
+
+        public static Employee SearchEmployee(int empId)
+        {
+            return EmployeeDB.SearchRecord(empId);
         }
 
     }

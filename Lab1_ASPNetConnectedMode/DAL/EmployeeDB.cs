@@ -13,16 +13,6 @@ namespace Lab1_ASPNetConnectedMode.DAL
 {
     public static class EmployeeDB
     {
-        //1. A method to save an employee record to the database
-        /// <summary>
-        /// Version : 2 Solving SQL injection
-        /// This method saves an employee record to the database
-        /// </summary>
-        /// <param name="emp"></param>
-
-        //insert into Employees
-        //values(8888, 'John', 'Thomas', 'Java Programmer');
-
         public static void SaveRecord(Employee emp)
         {
             //connect DB
@@ -66,7 +56,7 @@ namespace Lab1_ASPNetConnectedMode.DAL
 
         }
 
-        internal static void DeleteRecord(int empId)
+        public static void DeleteRecord(int empId)
         {
             //connect DB
             SqlConnection conn = UtilityDB.GetDBConnection();
@@ -82,22 +72,65 @@ namespace Lab1_ASPNetConnectedMode.DAL
             conn.Close();
         }
 
-        internal static DataTable listAll()
+        public static List<Employee> GetAllRecords()
+        {
+            List<Employee> listE = new List<Employee>();
+            SqlConnection conn = UtilityDB.GetDBConnection();
+            SqlCommand cmdSelectAll = new SqlCommand("SELECT * FROM Employees", conn);
+            SqlDataReader reader = cmdSelectAll.ExecuteReader();
+            Employee emp;
+
+            while (reader.Read())
+            {
+                emp = new Employee();
+                emp.EmployeeID = Convert.ToInt32(reader["EmployeeId"]);
+                emp.FirstName = reader["FirstName"].ToString();
+                emp.LastName = reader["LastName"].ToString();
+                emp.JobTitle = reader["JobTitle"].ToString();
+                listE.Add(emp);
+            }
+
+            conn.Close();
+            return listE;
+        }
+
+        public static Employee SearchRecord(int Id)
         {
             SqlConnection conn = UtilityDB.GetDBConnection();
+            SqlCommand cmdSearch = new SqlCommand();
+            cmdSearch.Connection = conn;
+            cmdSearch.CommandText = "SELECT * FROM Employees " + 
+                                    "WHERE EmployeeId = @EmployeeId";
+            cmdSearch.Parameters.AddWithValue("@EmployeeId", Id);
+            SqlDataReader reader = cmdSearch.ExecuteReader();
+            Employee emp = new Employee();
+            if (reader.Read())
+            {
+                emp.EmployeeID = Convert.ToInt32(reader["EmployeeId"]);
+                emp.FirstName = reader["FirstName"].ToString();
+                emp.LastName = reader["LastName"].ToString();
+                emp.JobTitle = reader["JobTitle"].ToString();
+            }
+            else
+            {
+                emp = null;
+            }
 
-            //perform SELECT operation
-            //create and customize an object of type SqlCommand
-            SqlCommand cmdSelect = new SqlCommand();
-            cmdSelect.Connection = conn;
-            cmdSelect.CommandText = "SELECT * FROM Employees";
-            SqlDataAdapter adapter = new SqlDataAdapter(cmdSelect);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+            return emp;
+        }
 
-            //close DB
-            conn.Close();
-            return dt;            
+        public static List<Employee> SearchRecord(string input)
+        {
+            List<Employee> employees = new List<Employee>();
+
+            return employees;
+        }
+
+        public static List<Employee> SearchRecord(string input1, string input2)
+        {
+            List<Employee> employees = new List<Employee>();
+
+            return employees;
         }
     }
 }

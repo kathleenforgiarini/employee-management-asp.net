@@ -49,6 +49,9 @@
         .auto-style20 {
             color: #0000FF;
         }
+        .auto-style21 {
+            color: #000000;
+        }
     </style>
 </head>
 <body style="width: 803px; height: 645px">
@@ -109,14 +112,10 @@
                 <td class="auto-style12">Search By</td>
                 <td class="auto-style14">
                     <asp:DropDownList ID="DropDownList1" runat="server" Width="177px">
-                        <asp:ListItem Selected="True" Value="empId">Employee ID</asp:ListItem>
-                        <asp:ListItem>First Name</asp:ListItem>
-                        <asp:ListItem>Last Name</asp:ListItem>
-                        <asp:ListItem>Job Title</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style16">
-                    <asp:TextBox ID="TextBox1" runat="server" Width="236px"></asp:TextBox>
+                    <asp:TextBox ID="txtSearch" runat="server" Width="236px"></asp:TextBox>
                 </td>
                 <td class="auto-style18">
                     <asp:Button ID="btnSearch" runat="server" Height="38px" Text="Search" Width="150px" OnClick="btnSearch_Click" />
@@ -124,6 +123,9 @@
             </tr>
         </table>
         <br />
+        <span class="auto-style20">
+        <asp:Label ID="Label1" runat="server" CssClass="auto-style21"></asp:Label>
+        </span>
         <br />
         <br />
         <span class="auto-style20">Employees List</span><br />
