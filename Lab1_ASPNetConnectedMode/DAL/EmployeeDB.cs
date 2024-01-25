@@ -47,9 +47,13 @@ namespace Lab1_ASPNetConnectedMode.DAL
             SqlCommand cmdUpdate = new SqlCommand();
             cmdUpdate.Connection = conn;
             cmdUpdate.CommandText = "UPDATE Employees SET " +
-                                    "FirstName = '" + emp.FirstName + "', LastName = '" + emp.LastName + "', JobTitle = '" + emp.JobTitle + "' " +
-                                    "WHERE EmployeeID = " + emp.EmployeeID;
-           
+                                    "FirstName = @FirstName, LastName = @LastName, JobTitle = @JobTitle " +
+                                    "WHERE EmployeeID = @EmployeeID";
+
+            cmdUpdate.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
+            cmdUpdate.Parameters.AddWithValue("@FirstName", emp.FirstName);
+            cmdUpdate.Parameters.AddWithValue("@LastName", emp.LastName);
+            cmdUpdate.Parameters.AddWithValue("@JobTitle", emp.JobTitle);
             cmdUpdate.ExecuteNonQuery();
             //close DB
             conn.Close();
@@ -65,8 +69,8 @@ namespace Lab1_ASPNetConnectedMode.DAL
             //create and customize an object of type SqlCommand
             SqlCommand cmdDelete = new SqlCommand();
             cmdDelete.Connection = conn;
-            cmdDelete.CommandText = "DELETE FROM Employees WHERE EmployeeId = " + empId;
-
+            cmdDelete.CommandText = "DELETE FROM Employees WHERE EmployeeId = @EmployeeID";
+            cmdDelete.Parameters.AddWithValue("@EmployeeID", empId);
             cmdDelete.ExecuteNonQuery();
             //close DB
             conn.Close();
