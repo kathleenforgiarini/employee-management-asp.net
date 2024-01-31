@@ -71,5 +71,13 @@ namespace Lab1_ASPNetConnectedMode.BLL
             return EmployeeDB.SearchRecord(empId);
         }
 
+        public static List<Employee> SearchEmployeeByFName(string input) => EmployeeDB.SearchRecordByFName(input);
+
+        public static List<Employee> SearchEmployeeByLName(string input) => EmployeeDB.SearchRecordByLName(input);
+
+        public static List<Employee> SearchEmployee(string input) => EmployeeDB.SearchRecord(input);
+
+        public static List<Employee> SearchEmployee(string input1, string input2) => EmployeeDB.SearchRecord(input1, input2);
+ 
     }
 }

@@ -24,9 +24,10 @@
         }
         .auto-style10 {
             width: 94%;
+            height: 72px;
         }
         .auto-style12 {
-            width: 664px;
+            width: 685px;
             text-align: right;
             height: 59px;
         }
@@ -44,13 +45,35 @@
             text-align: right;
         }
         .auto-style19 {
-            height: 603px;
+            height: 644px;
         }
         .auto-style20 {
             color: #0000FF;
         }
         .auto-style21 {
             color: #000000;
+        }
+        .auto-style22 {
+            text-align: right;
+            color: #0000FF;
+        }
+        .auto-style23 {
+            width: 685px;
+            text-align: right;
+            height: 14px;
+        }
+        .auto-style24 {
+            height: 14px;
+            width: 362px;
+        }
+        .auto-style25 {
+            height: 14px;
+            width: 310px;
+        }
+        .auto-style26 {
+            height: 14px;
+            width: 239px;
+            text-align: right;
         }
     </style>
 </head>
@@ -103,15 +126,16 @@
         </tr>
         <tr>
             <td class="auto-style9">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style22" colspan="2">
+        <asp:Label ID="Label1" runat="server" CssClass="auto-style21"></asp:Label>
+            </td>
         </tr>
         </table>
         <table class="auto-style10">
             <tr>
                 <td class="auto-style12">Search By</td>
                 <td class="auto-style14">
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="177px">
+                    <asp:DropDownList ID="DropDownList1" runat="server" Width="177px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style16">
@@ -121,11 +145,18 @@
                     <asp:Button ID="btnSearch" runat="server" Height="38px" Text="Search" Width="150px" OnClick="btnSearch_Click" />
                 </td>
             </tr>
+            <tr>
+                <td class="auto-style23"></td>
+                <td class="auto-style24">
+                </td>
+                <td class="auto-style25">
+                    <asp:TextBox ID="txtSearch2" runat="server" Visible="False" Width="236px"></asp:TextBox>
+                </td>
+                <td class="auto-style26">
+                </td>
+            </tr>
         </table>
         <br />
-        <span class="auto-style20">
-        <asp:Label ID="Label1" runat="server" CssClass="auto-style21"></asp:Label>
-        </span>
         <br />
         <br />
         <span class="auto-style20">Employees List</span><br />

@@ -96,6 +96,15 @@ namespace Lab1_ASPNetConnectedMode.GUI
         protected global::System.Web.UI.WebControls.Button btnListAll;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,13 @@ namespace Lab1_ASPNetConnectedMode.GUI
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// Label1 control.
+        /// txtSearch2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch2;
 
         /// <summary>
         /// GridView1 control.
